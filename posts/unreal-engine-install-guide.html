@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>虚幻引擎5安装与配置完整指南 - 小肥的博客</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo"><a href="../index.html">小肥的博客</a></h1>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../about.html">关于</a></li>
+                <li><a href="../tags.html">标签</a></li>
+                <li><a href="../archive.html">归档</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <article class="blog-post">
+        <div class="container">
+            <header class="post-header">
+                <h1>虚幻引擎5安装与配置完整指南</h1>
+                <div class="post-meta">
+                    <span class="author"><i class="fas fa-user"></i> 作者：小肥</span>
+                    <span class="tags"><i class="fas fa-tags"></i> 游戏开发, 虚幻引擎, UE5</span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <div class="section">
+                    <h2><i class="fas fa-info-circle"></i> 版本选择</h2>
+                    <p>虚幻引擎5提供多个版本，根据需求选择合适的版本：</p>
+                    
+                    <div class="highlight">
+                        <strong>版本对比：</strong>
+                        <ul>
+                            <li><strong>Epic Games启动器版本</strong> - 推荐，自动更新，包含商城资源</li>
+                            <li><strong>GitHub源码版本</strong> - 开发者专用，可自定义引擎</li>
+                            <li><strong>Launcher版本</strong> - 标准版本，适合大多数用户</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2><i class="fas fa-download"></i> 系统要求</h2>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <i class="fas fa-microchip"></i>
+                            <h3>CPU</h3>
+                            <p>Intel i7 或 AMD Ryzen 7 以上</p>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-memory"></i>
+                            <h3>内存</h3>
+                            <p>32GB RAM 以上（推荐64GB）</p>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-tv"></i>
+                            <h3>显卡</h3>
+                            <p>NVIDIA RTX 2070 或 AMD RX 6700 XT 以上</p>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-hdd"></i>
+                            <h3>存储</h3>
+                            <p>100GB 可用空间（SSD推荐）</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2><i class="fas fa-cog"></i> 安装步骤</h2>
+                    
+                    <div class="steps">
+                        <div class="step">
+                            <h3><i class="fas fa-download"></i> 步骤1：安装Epic Games启动器</h3>
+                            <ol>
+                                <li>访问<a href="https://www.unrealengine.com/download">虚幻引擎官网</a></li>
+                                <li>点击"下载Epic Games启动器"</li>
+                                <li>运行下载的安装程序（EpicInstaller.msi）</li>
+                                <li>按照提示完成安装</li>
+                            </ol>
+                        </div>
+
+                        <div class="step">
+                            <h3><i class="fas fa-sign-in-alt"></i> 步骤2：登录Epic账号</h3>
+                            <ol>
+                                <li>启动Epic Games启动器</li>
+                                <li>登录您的Epic Games账号（或注册新账号）</li>
+                                <li>完成邮箱验证（如果是新账号）</li>
+                            </ol>
+                        </div>
+
+                        <div class="step">
+                            <h3><i class="fas fa-install"></i> 步骤3：安装虚幻引擎5</h3>
+                            <ol>
+                                <li>在启动器左侧导航栏选择"虚幻引擎"</li>
+                                <li>点击"安装引擎"按钮</li>
+                                <li>选择安装位置（建议使用SSD硬盘）</li>
+                                <li>选择要安装的组件：</li>
+                            </ol>
+                            <div class="highlight">
+                                <strong>推荐组件：</strong>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> 核心组件（必须）</li>
+                                    <li><i class="fas fa-check"></i> Starter Content（推荐）</li>
+                                    <li><i class="fas fa-check"></i> Templates and Feature Packs（推荐）</li>
+                                    <li><i class="fas fa-times"></i> Engine Source（可选，高级用户）</li>
+                                </ul>
+                            </div>
+                            <p>点击"安装"开始下载（约50-100GB）</p>
+                        </div>
+
+                        <div class="step">
+                            <h3><i class="fas fa-rocket"></i> 步骤4：创建第一个项目</h3>
+                            <ol>
+                                <li>启动虚幻引擎5</li>
+                                <li>选择"游戏"类别</li>
+                                <li>选择模板（推荐"第三人称游戏"）</li>
+                                <li>设置项目名称和位置</li>
+                                <li>点击"创建项目"</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2><i class="fas fa-tools"></i> 首次配置</h2>
+                    
+                    <h3><i class="fas fa-palette"></i> 主题设置</h3>
+                    <div class="code-block">
+编辑 > 编辑器偏好设置 > 外观
+- 颜色主题：深色主题（推荐）
+- 字体大小：11pt
+- 启用自动保存：每5分钟
+                    </div>
+
+                    <h3><i class="fas fa-cogs"></i> 项目设置</h3>
+                    <div class="code-block">
+编辑 > 项目设置
+- 设置默认地图
+- 配置游戏模式
+- 设置输入绑定
+- 配置质量设置
+                    </div>
+
+                    <h3><i class="fas fa-plug"></i> 常用插件</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <strong>Quixel Bridge</strong> - 免费高质量资源</li>
+                        <li><i class="fas fa-check"></i> <strong>MetaHuman Plugin</strong> - 数字人物创建</li>
+                        <li><i class="fas fa-check"></i> <strong>Chaos Physics</strong> - 物理破坏系统</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2><i class="fas fa-bug"></i> 常见问题解决</h2>
+                    
+                    <div class="warning">
+                        <strong><i class="fas fa-exclamation-triangle"></i> 安装失败或卡住：</strong>
+                        <ul>
+                            <li>检查网络连接稳定性</li>
+                            <li>暂时关闭杀毒软件和防火墙</li>
+                            <li>以管理员身份运行Epic启动器</li>
+                            <li>清理缓存：%localappdata%\EpicGamesLauncher\Saved\</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning">
+                        <strong><i class="fas fa-tachometer-alt"></i> 性能优化：</strong>
+                        <ul>
+                            <li>使用SSD硬盘存储引擎和项目</li>
+                            <li>确保显卡驱动为最新版本</li>
+                            <li>关闭不必要的后台程序</li>
+                            <li>调整编辑器质量设置：设置 > 引擎可扩展性设置</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2><i class="fas fa-graduation-cap"></i> 学习资源</h2>
+                    <ul>
+                        <li><i class="fas fa-book"></i> <a href="https://docs.unrealengine.com/">官方文档</a> - 最权威的学习资料</li>
+                        <li><i class="fas fa-video"></i> <a href="https://www.unrealengine.com/zh-CN/onlinelearning">Epic在线学习</a> - 免费课程和教程</li>
+                        <li><i class="fas fa-youtube"></i> <a href="https://www.youtube.com/c/UnrealEngine">官方YouTube频道</a> - 视频教程</li>
+                        <li><i class="fas fa-users"></i> <a href="https://forums.unrealengine.com/">官方论坛</a> - 社区支持</li>
+                    </ul>
+                </div>
+            </div>
+
+            <nav class="post-nav">
+                <a href="../index.html" class="nav-link">
+                    <i class="fas fa-arrow-left"></i>
+                    返回博客列表
+                </a>
+            </nav>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 小肥的博客. 保留所有权利.</p>
+        </div>
+    </footer>
+</body>
+</html>

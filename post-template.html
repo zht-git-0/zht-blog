@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{文章标题}} - 小肥的博客</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo"><a href="../index.html">小肥的博客</a></h1>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../about.html">关于</a></li>
+                <li><a href="../tags.html">标签</a></li>
+                <li><a href="../archive.html">归档</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <article class="blog-post">
+        <div class="container">
+            <header class="post-header">
+                <h1>{{文章标题}}</h1>
+                <div class="post-meta">
+                    <span class="date"><i class="fas fa-calendar"></i> {{发布日期}}</span>
+                    <span class="author"><i class="fas fa-user"></i> {{作者}}</span>
+                    <span class="tags"><i class="fas fa-tags"></i> {{标签}}</span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <!-- 在这里添加文章内容 -->
+                <div class="section">
+                    <h2><i class="fas fa-book"></i> 引言</h2>
+                    <p>在这里写文章的引言部分...</p>
+                </div>
+
+                <div class="section">
+                    <h2><i class="fas fa-list-ol"></i> 主要内容</h2>
+                    <div class="steps">
+                        <div class="step">
+                            <h3>步骤1</h3>
+                            <p>描述步骤1的内容...</p>
+                        </div>
+                        
+                        <div class="step">
+                            <h3>步骤2</h3>
+                            <p>描述步骤2的内容...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2><i class="fas fa-lightbulb"></i> 总结</h2>
+                    <p>在这里写文章的总结部分...</p>
+                </div>
+            </div>
+
+            <nav class="post-nav">
+                <a href="../index.html" class="nav-link">
+                    <i class="fas fa-arrow-left"></i>
+                    返回博客列表
+                </a>
+            </nav>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 小肥的博客. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script src="../js/blog.js"></script>
+</body>
+</html>
