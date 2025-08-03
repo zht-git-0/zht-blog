@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{文章标题}} - 小肥的博客</title>
+    <meta name="description" content="{{文章描述}}">
+    <meta name="keywords" content="{{关键词1}}, {{关键词2}}, {{关键词3}}">
+    
+    <link rel="icon" href="../src/20d2718fd6ec4b049c2c5cb5e9e09e77preview.jpeg~tplv-a9rns2rl98-downsize_watermark_1_5.png" type="image/png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -22,40 +26,133 @@
 
     <article class="blog-post">
         <div class="container">
+            <!-- 面包屑导航 -->
+            <nav class="breadcrumb">
+                <a href="../index.html" class="breadcrumb-link">
+                    <i class="fas fa-home"></i> 小肥的博客
+                </a>
+                <span class="breadcrumb-separator">&gt;</span>
+                <span class="breadcrumb-current">{{文章标题}}</span>
+            </nav>
+
             <header class="post-header">
                 <h1>{{文章标题}}</h1>
                 <div class="post-meta">
+                    <span class="author"><i class="fas fa-user"></i> 作者：{{作者名}}</span>
                     <span class="date"><i class="fas fa-calendar"></i> {{发布日期}}</span>
-                    <span class="author"><i class="fas fa-user"></i> {{作者}}</span>
-                    <span class="tags"><i class="fas fa-tags"></i> {{标签}}</span>
+                    <span class="tags"><i class="fas fa-tags"></i> {{标签1}}, {{标签2}}, {{标签3}}</span>
+                    <span class="reading-time"><i class="fas fa-clock"></i> {{预计阅读时间}}</span>
                 </div>
             </header>
 
             <div class="post-content">
-                <!-- 在这里添加文章内容 -->
+                <!-- 文章摘要/引言 -->
                 <div class="section">
-                    <h2><i class="fas fa-book"></i> 引言</h2>
-                    <p>在这里写文章的引言部分...</p>
+                    <h2><i class="fas fa-lightbulb"></i> 引言</h2>
+                    <p>{{文章引言或摘要内容}}</p>
+                    
+                    <div class="highlight">
+                        <strong>本文要点：</strong>
+                        <ul>
+                            <li>{{要点1}}</li>
+                            <li>{{要点2}}</li>
+                            <li>{{要点3}}</li>
+                        </ul>
+                    </div>
                 </div>
 
+                <!-- 第一部分 -->
                 <div class="section">
-                    <h2><i class="fas fa-list-ol"></i> 主要内容</h2>
-                    <div class="steps">
-                        <div class="step">
-                            <h3>步骤1</h3>
-                            <p>描述步骤1的内容...</p>
-                        </div>
+                    <h2><i class="fas fa-section-icon"></i> {{第一部分标题}}</h2>
+                    <p>{{第一部分内容}}</p>
+                    
+                    <div class="subsection">
+                        <h3><i class="fas fa-subsection-icon"></i> {{子标题1}}</h3>
+                        <p>{{子内容1}}</p>
                         
-                        <div class="step">
-                            <h3>步骤2</h3>
-                            <p>描述步骤2的内容...</p>
+                        <!-- 代码块示例 -->
+                        <div class="code-block">
+{{代码示例}}
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3><i class="fas fa-subsection-icon"></i> {{子标题2}}</h3>
+                        <p>{{子内容2}}</p>
+                        
+                        <!-- 提示框示例 -->
+                        <div class="highlight">
+                            <strong>重要提示：</strong>
+                            <p>{{重要提示内容}}</p>
                         </div>
                     </div>
                 </div>
 
+                <!-- 第二部分 -->
                 <div class="section">
-                    <h2><i class="fas fa-lightbulb"></i> 总结</h2>
-                    <p>在这里写文章的总结部分...</p>
+                    <h2><i class="fas fa-section-icon"></i> {{第二部分标题}}</h2>
+                    <p>{{第二部分内容}}</p>
+                    
+                    <!-- 步骤列表示例 -->
+                    <div class="steps">
+                        <div class="step">
+                            <h3><i class="fas fa-step-icon"></i> {{步骤1标题}}</h3>
+                            <ol>
+                                <li>{{步骤1.1}}</li>
+                                <li>{{步骤1.2}}</li>
+                                <li>{{步骤1.3}}</li>
+                            </ol>
+                        </div>
+
+                        <div class="step">
+                            <h3><i class="fas fa-step-icon"></i> {{步骤2标题}}</h3>
+                            <ol>
+                                <li>{{步骤2.1}}</li>
+                                <li>{{步骤2.2}}</li>
+                                <li>{{步骤2.3}}</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第三部分 -->
+                <div class="section">
+                    <h2><i class="fas fa-section-icon"></i> {{第三部分标题}}</h2>
+                    <p>{{第三部分内容}}</p>
+                    
+                    <!-- 警告框示例 -->
+                    <div class="warning">
+                        <strong><i class="fas fa-exclamation-triangle"></i> 注意事项：</strong>
+                        <ul>
+                            <li>{{注意事项1}}</li>
+                            <li>{{注意事项2}}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 总结部分 -->
+                <div class="section">
+                    <h2><i class="fas fa-lightbulb"></i> 总结与展望</h2>
+                    <p>{{总结内容}}</p>
+                    
+                    <div class="highlight">
+                        <strong>下一步行动：</strong>
+                        <ul>
+                            <li>{{下一步1}}</li>
+                            <li>{{下一步2}}</li>
+                            <li>{{下一步3}}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 扩展学习资源 -->
+                <div class="section">
+                    <h2><i class="fas fa-graduation-cap"></i> 扩展学习资源</h2>
+                    <ul>
+                        <li><i class="fas fa-book"></i> <a href="{{资源链接1}}">{{资源名称1}}</a> - {{资源描述1}}</li>
+                        <li><i class="fas fa-video"></i> <a href="{{资源链接2}}">{{资源名称2}}</a> - {{资源描述2}}</li>
+                        <li><i class="fas fa-code"></i> <a href="{{资源链接3}}">{{资源名称3}}</a> - {{资源描述3}}</li>
+                    </ul>
                 </div>
             </div>
 
@@ -70,7 +167,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 小肥的博客. 保留所有权利.</p>
+            <p>&copy; {{当前年份}} 小肥的博客. 保留所有权利.</p>
         </div>
     </footer>
 
