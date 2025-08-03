@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>虚幻引擎核心概念详解：向量、蓝图与面向对象编程 - 小肥的博客</title>
+    <link rel="icon" href="../src/20d2718fd6ec4b049c2c5cb5e9e09e77preview.jpeg~tplv-a9rns2rl98-downsize_watermark_1_5.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo"><a href="../index.html">小肥的博客</a></h1>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../about.html">关于</a></li>
+                <li><a href="../tags.html">标签</a></li>
+                <li><a href="../archive.html">归档</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <article class="blog-post">
+        <div class="container">
+            <header class="post-header">
+                <h1>虚幻引擎核心概念详解：向量、蓝图与面向对象编程</h1>
+                <div class="post-meta">
+                    <span class="author"><i class="fas fa-user"></i> 作者：小肥</span>
+                    <span class="tags"><i class="fas fa-tags"></i> 游戏开发, 虚幻引擎, UE5, 编程概念</span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <div class="section">
+                    <h2><i class="fas fa-play"></i> 开篇引言</h2>
+                    <p>看完上期虚幻5视频，是否意犹未尽或困惑？别担心，本期拆解逻辑，让您豁然开朗。</p>
+                    
+                    <div class="highlight">
+                        <strong>本期重点：</strong>
+                        <ul>
+                            <li>深入理解向量概念</li>
+                            <li>掌握蓝图节点工作原理</li>
+                            <li>理解面向对象编程核心思想</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2><i class="fas fa-arrows-alt"></i> 第一章：向量的奥秘</h2>
+                    
+                    <p>为方便理解，先讲纯粹数学概念——向量。</p>
+                    
+                    <div class="subsection">
+                        <h3><i class="fas fa-question-circle"></i> 什么是向量？</h3>
+                        <p>高中数学说，是兼具大小和方向的量。</p>
+                        <p>虚幻中常用三维向量，对应X、Y、Z坐标轴。</p>
+                        
+                        <div class="code-block">
+三维向量表示：
+Vector3(x, y, z)
+- X轴：左右方向
+- Y轴：前后方向  
+- Z轴：上下方向
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3><i class="fas fa-arrow-up"></i> 单位向量的重要性</h3>
+                        <p>记得上期用"获取Actor向前向量"控子弹方向吗？</p>
+                        <p>调用"获取Actor向前向量"，得到特殊向量：方向向前，大小恒为1。这叫"单位向量"。</p>
+                        
+                        <div class="highlight">
+                            <strong>单位向量特点：</strong>
+                            <ul>
+                                <li>长度为1（标准化）</li>
+                                <li>仅表示方向</li>
+                                <li>常用于计算移动方向</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3><i class="fas fa-cube"></i> 三维向量演示</h3>
+                        <p>（三维向量演示动画）</p>
+                        <div class="code-block">
+// 获取Actor的向前向量
+FVector ForwardVector = GetActorForwardVector();
+// 结果：(1, 0, 0) - 沿X轴正方向
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2><i class="fas fa-project-diagram"></i> 第二章：蓝图节点规则</h2>
+                    
+                    <p>接下来看蓝图节点规则。</p>
+                    
+                    <div class="subsection">
+                        <h3><i class="fas fa-sign-in-alt"></i> 输入与输出</h3>
+                        <p>蓝图节点左侧是输入，右侧是输出。</p>
+                        
+                        <div class="code-block">
+以加法节点为例：
+左侧输入：A、B（相加数值）
+右侧输出：Result（计算总和）
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3><i class="fas fa-link"></i> 数据流规则</h3>
+                        <p>蓝图节点可无数据输入，但必须有输出，否则逻辑无法延续，无意义。</p>
+                        
+                        <div class="warning">
+                            <strong><i class="fas fa-exclamation-triangle"></i> 重要原则：</strong>
+                            <ul>
+                                <li>每个节点必须有明确的输出</li>
+                                <li>数据流从左到右流动</li>
+                                <li>执行流从上到下执行</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2><i class="fas fa-sitemap"></i> 第三章：面向对象编程核心</h2>
+                    
+                    <p>讲完向量和蓝图节点，再聊核心概念：类。</p>
+                    <p>上期提到但不够具体。这是<strong>"面向对象编程"</strong>基石。</p>
+
+                    <div class="subsection">
+                        <h3><i class="fas fa-globe"></i> 创世比喻理解</h3>
+                        <p>用创世比喻理解：您是创世神，要在空世界创造生命。</p>
+                        <p>需创造万千生物，设计每种的形态和习性，工作量大。</p>
+                        
+                        <div class="highlight">
+                            <strong>聪明的解决方案：</strong>
+                            <p>先提炼共性：归纳生命体共有特征为"生物"模板。</p>
+                            <p>在此基础上，从"生物"提取能动、有感觉的特征，归纳为"动物"类。</p>
+                            <p>再细分出"犬科""猫科"等。</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3><i class="fas fa-code"></i> 类与对象的关系</h3>
+                        <p>这种层层归纳、继承和细化，是面向对象核心。</p>
+                        <p>程序世界里，这些"模板"或"设计图"就是类。</p>
+                        
+                        <div class="code-block">
+类的构成：
+- 属性（数据）
+- 行为（方法/函数）
+                        </div>
+                        
+                        <p>通过类创造的具体生物，是对象或实例。</p>
+                        <p>现在明白程序运行时，操作的是一个个"对象"。</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3><i class="fas fa-user"></i> Self关键字的理解</h3>
+                        <p>上期说"获取Actor向前向量"左侧传入角色本身，Self代指"角色"这个对象。</p>
+                        <p>它告诉节点："请获取我自己的向前向量。"</p>
+                        
+                        <div class="code-block">
+// 伪代码示例
+dog = Dog()  // 创建狗对象
+dog.bark()   // 调用自己的行为
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3><i class="fas fa-dog"></i> 实例演示</h3>
+                        <p>举个例子："狗"类有"汪汪叫"的行为。</p>
+                        
+                        <div class="code-block">
+// 狗自己想叫时，行为是内在、自发的
+self.bark()  // self指代狗对象自身
+
+// 主人想让它叫时，需先明确"哪只狗"，再命令
+my_dog = Dog()  // 先根据"狗"这个类，创造一只具体的狗
+my_dog.bark()   // 主人通过引用，命令这只特定的狗去叫
+                        </div>
+                        
+                        <div class="highlight">
+                            <strong>关键区别：</strong>
+                            <ul>
+                                <li>Self：对象内部调用自己的行为</li>
+                                <li>实例引用：外部对象调用特定实例的行为</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2><i class="fas fa-lightbulb"></i> 总结与展望</h2>
+                    
+                    <p>通过本期学习，我们深入理解了：</p>
+                    <ul>
+                        <li>向量在虚幻引擎中的重要作用</li>
+                        <li>蓝图节点的工作原理和数据流向</li>
+                        <li>面向对象编程的核心思想和实际应用</li>
+                    </ul>
+                    
+                    <div class="highlight">
+                        <strong>下一步学习建议：</strong>
+                        <ul>
+                            <li>实践使用向量控制游戏对象移动</li>
+                            <li>尝试创建自己的蓝图节点</li>
+                            <li>设计简单的类结构来实现游戏功能</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2><i class="fas fa-graduation-cap"></i> 扩展学习资源</h2>
+                    <ul>
+                        <li><i class="fas fa-book"></i> <a href="https://docs.unrealengine.com/">虚幻引擎官方文档 - 向量数学</a></li>
+                        <li><i class="fas fa-video"></i> <a href="https://www.unrealengine.com/zh-CN/onlinelearning">Epic在线学习 - 蓝图基础</a></li>
+                        <li><i class="fas fa-code"></i> <a href="https://forums.unrealengine.com/">社区论坛 - 面向对象讨论</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <nav class="post-nav">
+                <a href="../index.html" class="nav-link">
+                    <i class="fas fa-arrow-left"></i>
+                    返回博客列表
+                </a>
+            </nav>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 小肥的博客. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script src="../js/blog.js"></script>
+</body>
+</html>
