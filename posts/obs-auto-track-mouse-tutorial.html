@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBS自动跟踪鼠标录制教程 - 免费实现屏幕录制自动跟随 - 小肥的博客</title>
+    <meta name="description" content="使用OBS和免费插件实现自动跟踪鼠标的屏幕录制功能，无需付费软件即可获得专业效果">
+    <meta name="keywords" content="OBS, 屏幕录制, 鼠标跟踪, 自动跟随, 免费教程">
+    
+    <link rel="icon" href="../src/20d2718fd6ec4b049c2c5cb5e9e09e77preview.jpeg~tplv-a9rns2rl98-downsize_watermark_1_5.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo"><a href="../index.html">小肥的博客</a></h1>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../about.html">关于</a></li>
+                <li><a href="../tags.html">标签</a></li>
+                <li><a href="../archive.html">归档</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <article class="blog-post">
+        <div class="container">
+            <!-- 面包屑导航 -->
+            <nav class="breadcrumb">
+                <a href="../index.html" class="breadcrumb-link">
+                    <i class="fas fa-home"></i> 小肥的博客
+                </a>
+                <span class="breadcrumb-separator">&gt;</span>
+                <span class="breadcrumb-current">OBS自动跟踪鼠标录制教程</span>
+            </nav>
+
+            <header class="post-header">
+                <h1>OBS自动跟踪鼠标录制教程 - 免费实现屏幕录制自动跟随</h1>
+                <div class="post-meta">
+                    <span class="author"><i class="fas fa-user"></i> 作者：小肥</span>
+                    <span class="date"><i class="fas fa-calendar"></i> 2024年12月19日</span>
+                    <span class="tags"><i class="fas fa-tags"></i> OBS, 屏幕录制, 教程, 免费工具</span>
+                    <span class="reading-time"><i class="fas fa-clock"></i> 预计阅读时间：5分钟</span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <!-- 文章摘要/引言 -->
+                <div class="section">
+                    <h2><i class="fas fa-lightbulb"></i> 引言</h2>
+                    <p>有观众问我，这张自动跟踪视频是怎么做的？今天就在这里给大家详细介绍一下！自动跟踪鼠标录制可以让你的屏幕录制更加专业，观众能够更清楚地看到你操作的重点区域。</p>
+                    
+                    <div class="highlight">
+                        <strong>本文要点：</strong>
+                        <ul>
+                            <li>付费方案：Focus See、Screen Studio等专业软件</li>
+                            <li>免费方案：OBS + 自动跟踪插件</li>
+                            <li>完整的配置步骤和参数设置</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 第一部分 -->
+                <div class="section">
+                    <h2><i class="fas fa-dollar-sign"></i> 付费方案 - 直接购买专业软件</h2>
+                    <p>首先，如果你预算充足，我推荐直接订阅市面上已经成熟的跟踪录屏软件，这些软件功能完善，使用简单，效果专业。</p>
+                    
+                    <div class="subsection">
+                        <h3><i class="fas fa-star"></i> 推荐软件</h3>
+                        <p>目前市面上比较知名的自动跟踪录屏软件有：</p>
+                        <ul>
+                            <li><strong>Focus See</strong> - 专为教学视频设计的自动跟踪工具</li>
+                            <li><strong>Screen Studio</strong> - 功能强大的屏幕录制和编辑软件</li>
+                            <li><strong>Camtasia</strong> - 老牌屏幕录制软件，支持智能聚焦</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 第二部分 -->
+                <div class="section">
+                    <h2><i class="fas fa-tools"></i> 免费方案 - OBS + 插件实现</h2>
+                    <p>这时候有人要问了，有没有更便宜的方案？有的有的！我们可以使用OBS加插件实现类似的功能，完全免费！</p>
+                    
+                    <!-- 步骤列表示例 -->
+                    <div class="steps">
+                        <div class="step">
+                            <h3><i class="fas fa-download"></i> 第一步：下载和安装</h3>
+                            <ol>
+                                <li>首先在<a href="https://obsproject.com/" target="_blank">OBS官网</a>下载OBS Studio</li>
+                                <li>接着去Github下载插件脚本：<a href="https://github.com/BlankSourceCode/obs-zoom-to-mouse" target="_blank">obs-zoom-to-mouse</a></li>
+                                <li>或者直接下载本地已准备好的脚本：<a href="../src/obs-zoom-to-mouse.lua" download="obs-zoom-to-mouse.lua">点击下载obs-zoom-to-mouse.lua</a></li>
+                                <li>将下载的lua脚本保存到本地</li>
+                        </ol>
+                        </div>
+
+                        <div class="step">
+                            <h3><i class="fas fa-cog"></i> 第二步：配置OBS和插件</h3>
+                            <ol>
+                                <li>打开OBS，添加一个"显示捕获"源</li>
+                                <li>点击OBS上方菜单栏的"工具"</li>
+                                <li>选择"脚本"</li>
+                                <li>点击加号，选择刚才下载的obs-zoom-to-mouse.lua脚本</li>
+                            </ol>
+                        </div>
+
+                        <div class="step">
+                            <h3><i class="fas fa-keyboard"></i> 第三步：设置快捷键</h3>
+                            <ol>
+                                <li>打开OBS设置(File -> Settings)</li>
+                                <li>选择"热键"选项卡</li>
+                                <li>找到"Toggle zoom to mouse"，设置一个快捷键</li>
+                                <li>可以设置"Toggle follow mouse during zoom"作为可选功能</li>
+                                <li>点击确定保存设置</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第三部分 -->
+                <div class="section">
+                    <h2><i class="fas fa-sliders-h"></i> 参数设置详解</h2>
+                    <p>为了让自动跟踪效果更好，我们需要调整一些关键参数：</p>
+                    
+                    <div class="subsection">
+                        <h3><i class="fas fa-search-plus"></i> 缩放相关参数</h3>
+                        <ul>
+                            <li><strong>Zoom Factor</strong> - 缩放倍数，建议设置为2-3倍</li>
+                            <li><strong>Zoom Speed</strong> - 缩放速度，建议中等速度</li>
+                            <li><strong>Auto follow mouse</strong> - 自动跟随鼠标，建议开启</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3><i class="fas fa-crosshairs"></i> 跟随相关参数</h3>
+                        <ul>
+                            <li><strong>Follow Speed</strong> - 跟随速度，建议设置为中等</li>
+                            <li><strong>Follow Border</strong> - 边界触发距离，建议设置为10-15%</li>
+                            <li><strong>Lock Sensitivity</strong> - 锁定灵敏度，根据需求调整</li>
+                        </ul>
+                    </div>
+
+                    <!-- 警告框示例 -->
+                    <div class="warning">
+                        <strong><i class="fas fa-exclamation-triangle"></i> 注意事项：</strong>
+                        <ul>
+                            <li>确保显示捕获源的设置正确，建议使用"按内边界缩放"</li>
+                            <li>如果更改了显示器设置，需要重新添加显示捕获源</li>
+                            <li>录制前最好先测试快捷键是否正常工作</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 总结部分 -->
+                <div class="section">
+                    <h2><i class="fas fa-lightbulb"></i> 总结与展望</h2>
+                    <p>通过以上步骤，你就可以使用完全免费的工具实现自动跟踪鼠标的屏幕录制功能了！虽然相比付费软件可能需要一些手动配置，但效果同样出色。</p>
+                    
+                    <div class="highlight">
+                        <strong>下一步行动：</strong>
+                        <ul>
+                            <li>下载OBS和插件脚本开始尝试</li>
+                            <li>根据自己的需求调整参数设置</li>
+                            <li>录制一段测试视频检查效果</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 扩展学习资源 -->
+                <div class="section">
+                    <h2><i class="fas fa-graduation-cap"></i> 扩展学习资源</h2>
+                    <ul>
+                        <li><i class="fas fa-book"></i> <a href="https://github.com/BlankSourceCode/obs-zoom-to-mouse">OBS Zoom to Mouse 官方文档</a> - 插件详细说明和配置指南</li>
+                        <li><i class="fas fa-video"></i> <a href="https://obsproject.com/wiki/">OBS官方Wiki</a> - OBS使用教程和技巧</li>
+                        <li><i class="fas fa-code"></i> <a href="https://obsproject.com/forum/">OBS社区论坛</a> - 与其他用户交流经验</li>
+                    </ul>
+                </div>
+            </div>
+
+            <nav class="post-nav">
+                <a href="../index.html" class="nav-link">
+                    <i class="fas fa-arrow-left"></i>
+                    返回博客列表
+                </a>
+            </nav>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 小肥的博客. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script src="../js/blog.js"></script>
+</body>
+</html>
