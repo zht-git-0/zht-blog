@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>虚幻引擎变量详解 - 小肥的博客</title>
+    <meta name="description" content="详细介绍虚幻引擎中变量的概念、创建方法、类型分类以及注释的使用技巧">
+    <meta name="keywords" content="虚幻引擎, 变量, 蓝图, UE5, 游戏开发">
+    
+    <link rel="icon" href="../src/20d2718fd6ec4b049c2c5cb5e9e09e77preview.jpeg~tplv-a9rns2rl98-downsize_watermark_1_5.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo"><a href="../index.html">小肥的博客</a></h1>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../about.html">关于</a></li>
+                <li><a href="../tags.html">标签</a></li>
+                <li><a href="../archive.html">归档</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 文章主体 -->
+    <article class="blog-post">
+        <div class="container">
+            <!-- 面包屑导航 -->
+            <nav class="breadcrumb">
+                <a href="../index.html" class="breadcrumb-link">
+                    <i class="fas fa-home"></i> 小肥的博客
+                </a>
+                <span class="breadcrumb-separator">&gt;</span>
+                <span class="breadcrumb-current">虚幻引擎变量详解</span>
+            </nav>
+
+            <!-- 文章头部 -->
+            <header class="post-header">
+                <h1>虚幻引擎变量详解</h1>
+                <div class="post-meta">
+                    <span class="author"><i class="fas fa-user"></i> 作者：小肥</span>
+                    <span class="date"><i class="fas fa-calendar"></i> 2024年1月16日</span>
+                    <span class="tags"><i class="fas fa-tags"></i> 虚幻引擎, 变量, 蓝图, UE5</span>
+                    <span class="reading-time"><i class="fas fa-clock"></i> 8分钟</span>
+                </div>
+            </header>
+
+            <!-- 文章内容 -->
+            <div class="post-content">
+                <!-- 文章摘要/引言 -->
+                <div class="section">
+                    <h2><i class="fas fa-lightbulb"></i> 引言</h2>
+                    <p>在刚学习方程的时候，我们就学会了在答题前写下这样一段话：设某某某为X。这段简单的话就实现了用一个抽象的变量x代替了一个有实际意义的值。在开发过程中，我们也希望用更简洁的方式使用我们输入的值。</p>
+                    
+                    <div class="highlight">
+                        <strong>本文要点：</strong>
+                        <ul>
+                            <li>变量的概念和创建方法</li>
+                            <li>变量类型的详细分类</li>
+                            <li>注释的使用技巧</li>
+                            <li>变量在蓝图中的实际应用</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 第一部分：变量概念和创建 -->
+                <div class="section">
+                    <h2><i class="fas fa-code"></i> 变量的概念与创建</h2>
+                    <p>变量是编程中的基本概念，它允许我们用符号名称来存储和操作数据。在虚幻引擎中，变量的使用让我们的代码结构更加清晰，便于维护和调试。</p>
+                    
+                    <div class="subsection">
+                        <h3><i class="fas fa-plus-circle"></i> 创建变量的步骤</h3>
+                        <p>在虚幻引擎中创建变量非常简单：</p>
+                        
+                        <div class="steps">
+                            <div class="step">
+                                <h3><i class="fas fa-mouse-pointer"></i> 步骤1：提升为变量</h3>
+                                <ol>
+                                    <li>打开你的项目</li>
+                                    <li>右键点击需要提升为变量的值</li>
+                                    <li>选择"提升为变量"选项</li>
+                                </ol>
+                            </div>
+
+                            <div class="step">
+                                <h3><i class="fas fa-edit"></i> 步骤2：重命名变量</h3>
+                                <ol>
+                                    <li>发现这里多了一个引脚</li>
+                                    <li>点击这个新引脚</li>
+                                    <li>主包直接给它重命名为有意义的名称（如"速度"）</li>
+                                </ol>
+                            </div>
+
+                            <div class="step">
+                                <h3><i class="fas fa-play"></i> 步骤3：编译和使用</h3>
+                                <ol>
+                                    <li>编译蓝图</li>
+                                    <li>在右侧细节面板中快速修改这个值</li>
+                                    <li>变量现在可以在整个蓝图中使用</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第二部分：变量类型分类 -->
+                <div class="section">
+                    <h2><i class="fas fa-list-ol"></i> 变量类型详解</h2>
+                    <p>点击右侧变量的加号可以快速创建变量，在细节面板中点击变量类型，这里直接显示的是我们最常见的变量类型。主包把这些变量分为以下几类：</p>
+                    
+                    <!-- 布尔类 -->
+                    <div class="subsection">
+                        <h3><i class="fas fa-toggle-on"></i> 布尔类</h3>
+                        <p>布尔只有真和假两个值，用于逻辑运算。这是最简单的变量类型，但在游戏开发中非常重要。</p>
+                        
+                        <div class="highlight">
+                            <strong>布尔变量的应用场景：</strong>
+                            <ul>
+                                <li>游戏状态切换（开始/暂停/结束）</li>
+                                <li>角色状态（活着/死亡、受伤/健康）</li>
+                                <li>开关控制（门的开/关、灯的亮/灭）</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 数字类 -->
+                    <div class="subsection">
+                        <h3><i class="fas fa-calculator"></i> 数字类</h3>
+                        <p>数字类变量用于存储数值信息，包含多种子类型：</p>
+                        
+                        <div class="code-block">
+字节：主要用于其他类型转换的中间过渡，一般不需要特别关注
+整数：分为32位整数和64位整数，区别在于可表示的整数范围不同
+浮点数：可以表示有理数，如3.14、-2.5等
+                        </div>
+                        
+                        <div class="warning">
+                            <strong><i class="fas fa-exclamation-triangle"></i> 注意事项：</strong>
+                            <ul>
+                                <li>32位整数范围：-2,147,483,648 到 2,147,483,647</li>
+                                <li>64位整数范围：-9,223,372,036,854,775,808 到 9,223,372,036,854,775,807</li>
+                                <li>浮点数有精度限制，不适合精确计算</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 字符类 -->
+                    <div class="subsection">
+                        <h3><i class="fas fa-font"></i> 字符类</h3>
+                        <p>这一类用于显示文字，包含字符串和文本两种类型：</p>
+                        
+                        <div class="steps">
+                            <div class="step">
+                                <h3><i class="fas fa-code"></i> 字符串</h3>
+                                <p>主要用于内部传递，如函数参数、数据存储等。在程序逻辑中处理文本信息时使用。</p>
+                            </div>
+
+                            <div class="step">
+                                <h3><i class="fas fa-desktop"></i> 文本</h3>
+                                <p>主要用于在游戏窗口中显示，如UI文本、对话内容、提示信息等面向玩家的文字显示。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 变换类 -->
+                    <div class="subsection">
+                        <h3><i class="fas fa-arrows-alt"></i> 变换类</h3>
+                        <p>变换类变量用于处理3D空间中的位置、旋转和缩放信息：</p>
+                        
+                        <div class="code-block">
+向量：主包已经讲过，用于表示3D空间中的位置或方向
+旋转：顾名思义，用于表示对象的旋转角度和轴向
+变换：就是向量加旋转加缩放的组合，完整描述对象在3D空间中的状态
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第三部分：注释的使用 -->
+                <div class="section">
+                    <h2><i class="fas fa-comment-alt"></i> 注释的使用技巧</h2>
+                    <p>良好的注释习惯对于代码维护和团队协作至关重要。在虚幻引擎蓝图中，注释的使用也非常简单。</p>
+                    
+                    <div class="subsection">
+                        <h3><i class="fas fa-keyboard"></i> 创建注释</h3>
+                        <p>点击C键即可创建注释，这个快捷键操作非常方便。</p>
+                        
+                        <div class="highlight">
+                            <strong>注释的作用：</strong>
+                            <ul>
+                                <li>有利于对蓝图的解读</li>
+                                <li>帮助其他开发者理解你的逻辑</li>
+                                <li>便于后期维护和修改</li>
+                                <li>记录重要信息和注意事项</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3><i class="fas fa-lightbulb"></i> 注释的最佳实践</h3>
+                        <ol>
+                            <li>在复杂的逻辑节点组周围添加注释说明</li>
+                            <li>为变量命名添加说明，解释其用途</li>
+                            <li>记录重要的计算公式或算法原理</li>
+                            <li>标记TODO和FIXME等待处理的事项</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 总结部分 -->
+                <div class="section">
+                    <h2><i class="fas fa-lightbulb"></i> 总结与展望</h2>
+                    <p>运用变量可以使代码结构更清晰，这是虚幻引擎开发中的重要原则。通过合理使用不同类型的变量，我们可以构建出功能强大且易于维护的游戏系统。</p>
+                    
+                    <div class="highlight">
+                        <strong>下一步行动：</strong>
+                        <ul>
+                            <li>在实际项目中练习创建和使用各种类型的变量</li>
+                            <li>学习变量的高级特性，如变量复制、变量引用等</li>
+                            <li>探索变量在游戏逻辑、UI系统、物理模拟等领域的应用</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 扩展学习资源 -->
+                <div class="section">
+                    <h2><i class="fas fa-graduation-cap"></i> 扩展学习资源</h2>
+                    <ul>
+                        <li><i class="fas fa-book"></i> <a href="https://docs.unrealengine.com/5.0/en-US/variables-in-blueprints/">虚幻引擎官方文档：蓝图变量</a> - 官方对变量的详细说明</li>
+                        <li><i class="fas fa-video"></i> <a href="https://www.youtube.com/watch?v=example">虚幻引擎变量系统详解视频教程</a> - 视频演示变量的各种用法</li>
+                        <li><i class="fas fa-code"></i> <a href="https://github.com/example/ue5-variables">虚幻引擎变量示例项目</a> - 包含各种变量类型的实际应用案例</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 文章底部导航 -->
+            <nav class="post-nav">
+                <a href="../index.html" class="nav-link">
+                    <i class="fas fa-arrow-left"></i>
+                    返回博客列表
+                </a>
+            </nav>
+        </div>
+    </article>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 小肥的博客. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script src="../js/blog.js"></script>
+</body>
+</html>
